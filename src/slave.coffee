@@ -66,6 +66,8 @@ initSlave = ->
       if req.withCredentials
         req.headers['XDomain-Cookie'] = req.credentials
 
+
+
       xhr.timeout = req.timeout if req.timeout
       xhr.responseType = req.type if req.type
       for k,v of req.headers
@@ -79,6 +81,7 @@ initSlave = ->
         req.body = fd
 
       #fire off request
+      xhr.setRequestHeader 'XDomain-Origin', origin
       xhr.send req.body or null
 
       return

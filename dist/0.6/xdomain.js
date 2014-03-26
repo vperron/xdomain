@@ -617,6 +617,7 @@ initSlave = function() {
         }
         req.body = fd;
       }
+      xhr.setRequestHeader('XDomain-Origin', origin);
       xhr.send(req.body || null);
     });
     log("slave listening for requests on socket: " + socket.id);
